@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>링크풀 — 흩어진 링크를 한곳에, 링크 정리·북마크 관리 앱</title>
-  <meta name="description" content="카톡·브라우저에 쌓이기만 하는 링크, 링크풀로 정리하세요. 폴더 정리, 크롬 확장 동기화, AI 요약 메모까지. iOS·Android 무료 링크 관리 앱.">
+  <meta name="description" content="카톡·브라우저에 쌓이기만 하는 링크, 링크풀로 정리하세요. 무제한 중첩 폴더, 크롬 확장 동기화, AI 요약 메모. iOS·Android 무료 링크 관리 앱.">
   <link rel="canonical" href="https://linkpool.boring-km.dev/">
   <link rel="icon" href="assets/icon.png">
   <meta property="og:type" content="website">
@@ -36,7 +36,7 @@
       {"@type": "Question", "name": "무료로 어디까지 쓸 수 있나요?",
        "acceptedAnswer": {"@type": "Answer", "text": "링크 1,000개까지 저장, 폴더 무제한, 기기 간 동기화 모두 무료입니다."}},
       {"@type": "Question", "name": "Pro는 무엇이 다른가요?",
-       "acceptedAnswer": {"@type": "Answer", "text": "AI 요약 메모, 링크 무제한 저장, 깨진 링크 검사가 추가됩니다. 월 1,100원."}},
+       "acceptedAnswer": {"@type": "Answer", "text": "AI 요약 메모, 링크 무제한 저장, 깨진 링크 검사가 추가됩니다. 월 2,900원."}},
       {"@type": "Question", "name": "데이터는 어디에 저장되나요?",
        "acceptedAnswer": {"@type": "Answer", "text": "기본은 내 기기에 저장됩니다. 로그인하면 클라우드에 동기화되어 기기를 바꿔도 유지됩니다."}},
       {"@type": "Question", "name": "어떤 플랫폼을 지원하나요?",
@@ -48,107 +48,226 @@
   </script>
 </head>
 <body>
+<!--
+THESIS: 링크 관리 카테고리의 정석 랜딩을 토스·Raindrop·mymind급 완성도로 — 재구성 UI가 증명하고, 큰 타이포가 말한다. 거부하는 것: 폰 목업 스크린샷 나열.
+OWN-WORLD: 흰 바탕, 잉크 #191F28, 보라 #804DFF가 데모 UI·CTA·포커스에 집중 투입. Pretendard Variable, 대형 디스플레이 스케일. 재구성 UI는 전부 HTML/CSS.
+STORY: 방문자는 '내 얘기'(쌓이는 링크)를 인식하고, 재구성 UI에서 정리되는 순간을 보고, 확장 설치(데스크톱) 또는 QR(폰)로 전환한다.
+FIRST VIEWPORT: 중앙 대형 헤드라인 + 서브 + CTA(Chrome 확장 primary, QR 2개) → 바로 아래 와이드 데모 UI 창 상단부가 걸쳐 보인다. 시그니처: 카톡에서 온 링크가 토스트로 떠서 폴더로 정리되는 1회 오케스트레이션.
+FORM: 카테고리 정석(canon, 사용자 선택). 후보 리스트 외부의 standing exit. seed key a87c0441.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->
+  <header class="nav">
+   <div class="nav-inner">
+    <a class="brand" href="#">
+      <img src="assets/icon.png" alt="" width="28" height="28">
+      링크풀
+    </a>
+    <nav class="nav-links" aria-label="페이지 내 이동">
+      <a href="#features">기능</a>
+      <a href="#pro">Pro</a>
+      <a href="#faq">자주 묻는 질문</a>
+    </nav>
+    <a class="nav-cta" href="https://chromewebstore.google.com/detail/ekpnjdelmmlffckepgphccolelddblej?hl=ko">Chrome에 추가</a>
+   </div>
+  </header>
+
   <main>
     <section id="hero">
-      <div class="wrap">
-        <img class="hero-icon" src="assets/icon.png" alt="링크풀 아이콘" width="76" height="76">
-        <h1>쌓이기만 하는 링크,<br>링크풀에 정리하세요</h1>
-        <p class="sub">카톡 나에게 보내기, 브라우저 탭 수십 개…<br>흩어진 링크를 폴더로 정리하고 어디서든 다시 찾는 링크 관리 앱</p>
-        <div class="store-buttons">
-          <a class="btn" href="https://apps.apple.com/kr/app/id1644108674">App Store</a>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.mr.ac_project_app&amp;hl=ko">Google Play</a>
-          <a class="btn btn-ghost" href="https://chromewebstore.google.com/detail/bdnnjanabjaahlpfpdcgfhgenhinlfbo?hl=ko">Chrome 확장</a>
+      <h1>쌓이기만 하는 링크,<br>링크풀에 정리하세요</h1>
+      <p class="sub">카톡 나에게 보내기, 수십 개의 브라우저 탭, 몇 년째 방치된 북마크바.<br>흩어진 링크를 폴더로 정리하고, 어디서든 다시 찾으세요.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://chromewebstore.google.com/detail/ekpnjdelmmlffckepgphccolelddblej?hl=ko">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4h8.6"/><path d="M8.9 13.8 4.6 6.4"/><path d="M15.1 13.8l-4.3 7.4"/></svg>
+          Chrome에 링크풀 추가
+        </a>
+        <div class="qr-pair">
+          <figure>
+            <img src="assets/qr-appstore.png" alt="App Store 설치 QR 코드" width="88" height="88">
+            <figcaption>iPhone<br><a href="https://apps.apple.com/kr/app/id1644108674">App Store</a></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/qr-googleplay.png" alt="Google Play 설치 QR 코드" width="88" height="88">
+            <figcaption>Android<br><a href="https://play.google.com/store/apps/details?id=com.mr.ac_project_app&amp;hl=ko">Google Play</a></figcaption>
+          </figure>
         </div>
-        <img class="hero-shot" src="assets/screenshot-1.png" alt="링크풀 앱 마이폴더 화면 — 폴더별로 정리된 링크 목록" width="300" height="652">
-        <div class="qr-row" aria-label="앱 설치 QR 코드">
-          <figure>
-            <img src="assets/qr-appstore.png" alt="App Store 설치 QR 코드" width="112" height="112">
-            <figcaption>App Store</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/qr-googleplay.png" alt="Google Play 설치 QR 코드" width="112" height="112">
-            <figcaption>Google Play</figcaption>
-          </figure>
+      </div>
+      <p class="hero-note">폰에서 쓰려면 QR을 찍으세요 · 무료로 시작</p>
+
+      <div class="demo" role="img" aria-label="링크풀 화면 재구성 — 폴더 트리와 저장된 링크 카드 목록">
+        <div class="demo-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="demo-title">링크풀 — 마이폴더</span>
+        </div>
+        <div class="demo-body">
+          <aside class="demo-side">
+            <p class="demo-side-head">마이폴더</p>
+            <ul>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>개발 아티클 <span class="cnt">24</span></li>
+              <li class="sub-folder"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Flutter <span class="cnt">9</span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>레시피 모음 <span class="cnt">17</span></li>
+              <li class="toast-target"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>여행 준비 <span class="cnt"><span class="c-old">10</span><span class="c-new">11</span></span></li>
+              <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>디자인 레퍼런스 <span class="cnt">32</span></li>
+            </ul>
+          </aside>
+          <div class="demo-main">
+            <div class="demo-card d1">
+              <p class="dc-title"><span class="fav f-b" aria-hidden="true">B</span>Flutter 상태관리 완벽 가이드</p>
+              <p class="dc-memo">Cubit과 Bloc의 차이를 실전 예제로 정리. 중형 앱은 Cubit으로 충분하다는 결론.</p>
+              <p class="dc-url">blog.example.com</p>
+            </div>
+            <div class="demo-card d2">
+              <p class="dc-title"><span class="fav f-t" aria-hidden="true">T</span>제주 3박4일 코스 총정리</p>
+              <p class="dc-memo">동쪽 위주 일정. 성산 일출 → 우도 → 세화 카페거리 순서 추천.</p>
+              <p class="dc-url">travel.example.com</p>
+            </div>
+            <div class="demo-card d3">
+              <p class="dc-title"><span class="fav f-r" aria-hidden="true">R</span>크림 파스타 황금 레시피</p>
+              <p class="dc-memo">재료 4개, 15분 완성. 생크림 대신 우유+버터로 대체 가능.</p>
+              <p class="dc-url">recipe.example.com</p>
+            </div>
+            <div class="demo-card d4">
+              <p class="dc-title"><span class="fav f-d" aria-hidden="true">D</span>온보딩 UX 베스트 사례 10선</p>
+              <p class="dc-memo">첫 실행에서 가치를 3초 안에 보여주는 패턴 모음.</p>
+              <p class="dc-url">design.example.com</p>
+            </div>
+            <div class="demo-card d5">
+              <p class="dc-title"><span class="fav f-d" aria-hidden="true">D</span>2026 컬러 트렌드 리포트</p>
+              <p class="dc-memo">보라·라일락 계열 강세. 제품 UI 적용 사례 포함.</p>
+              <p class="dc-url">design.example.com</p>
+            </div>
+            <div class="demo-card d6">
+              <p class="dc-title"><span class="fav f-r" aria-hidden="true">R</span>에어프라이어 만능 레시피</p>
+              <p class="dc-memo">감자·닭날개·식빵 러스크까지 온도/시간표 정리.</p>
+              <p class="dc-url">recipe.example.com</p>
+            </div>
+          </div>
+        </div>
+        <div class="demo-toast">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          카카오톡에서 온 링크가 <strong>여행 준비</strong> 폴더로 정리됐어요
         </div>
       </div>
     </section>
 
-    <section id="problem">
-      <h2>이런 적 있지 않나요?</h2>
-      <ul class="chat">
-        <li class="msg">"나중에 봐야지" 하고 카톡 나에게 보내기 — 다시 연 적 없음</li>
-        <li class="msg">북마크바는 몇 년째 정리 포기 상태</li>
-        <li class="msg">분명 저장했는데 어디 있는지 못 찾음</li>
-        <li class="msg reply">링크풀에 넣으면 다시 찾을 수 있어요 👇</li>
-      </ul>
-    </section>
-
     <section id="features">
-      <h2>링크풀이 해결합니다</h2>
-      <ul class="feature-list">
-        <li>
-          <span class="f-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 13h4"/><path d="M8 16h7"/></svg>
-          </span>
-          <div>
-            <h3>폴더로 깔끔하게</h3>
-            <p>무제한 깊이 중첩 폴더. 세세하게 나누는 파워유저 방식 그대로.</p>
+      <h2>정리는 앱이, 저장은 어디서든</h2>
+
+      <article class="feat">
+        <div class="feat-copy">
+          <h3>폴더 안에 폴더, 무제한으로</h3>
+          <p>대충 한 폴더에 몰아넣는 게 아니라, 개발 아티클 안에 Flutter, 그 안에 상태관리까지. 세세하게 나누는 파워유저 방식 그대로 무제한 깊이로 정리됩니다.</p>
+        </div>
+        <div class="feat-ui">
+          <div class="tree">
+            <div class="tree-row depth-0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>개발 아티클</div>
+            <div class="tree-row depth-1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Flutter</div>
+            <div class="tree-row depth-2 hl"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>상태관리</div>
+            <div class="tree-row depth-2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>애니메이션</div>
+            <div class="tree-row depth-1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>CI/CD</div>
           </div>
-        </li>
-        <li>
-          <span class="f-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.9-3"/><path d="M5 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3"/><path d="M19 20v-4h-4"/></svg>
-          </span>
-          <div>
-            <h3>PC와 폰이 하나로</h3>
-            <p>크롬 확장으로 PC에서 저장, 폰에서 열람. 크롬 북마크 가져오기도 지원.</p>
+        </div>
+      </article>
+
+      <article class="feat rev">
+        <div class="feat-copy">
+          <h3>PC에서 저장, 폰에서 열람</h3>
+          <p>크롬 확장으로 보던 페이지를 그 자리에서 저장하면 폰 앱에 바로 나타납니다. 몇 년 묵은 크롬 북마크도 한 번에 가져올 수 있어요.</p>
+        </div>
+        <div class="feat-ui">
+          <div class="ext-pop">
+            <div class="ext-head">
+              <img src="assets/icon.png" alt="" width="20" height="20">
+              링크풀에 저장
+            </div>
+            <p class="ext-url">blog.example.com/flutter-state</p>
+            <div class="ext-select">저장 폴더: <strong>개발 아티클 / Flutter</strong></div>
+            <div class="ext-btn">저장</div>
           </div>
-        </li>
-        <li>
-          <span class="f-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9z"/></svg>
-          </span>
-          <div>
-            <h3>AI 요약 메모</h3>
-            <p>저장한 링크를 AI가 3줄로 요약. 열어보지 않아도 내용이 기억납니다.</p>
+        </div>
+      </article>
+
+      <article class="feat">
+        <div class="feat-copy">
+          <h3>열어보지 않아도 기억나는 링크</h3>
+          <p>저장한 링크를 AI가 3줄로 요약해 메모로 붙여줍니다. "이거 뭐였더라" 하고 다시 열어볼 필요가 없어요.</p>
+          <p class="feat-tag">Pro</p>
+        </div>
+        <div class="feat-ui">
+          <div class="ai-card">
+            <p class="dc-title">오프라인 우선 동기화 설계</p>
+            <div class="ai-memo">
+              <span class="ai-badge">AI 요약</span>
+              <ul>
+                <li>로컬 DB를 진실의 원천으로 두고 서버는 백업 역할</li>
+                <li>충돌은 마지막 수정 시각 기준으로 해소</li>
+                <li>오프라인 편집도 온라인 복귀 시 자동 반영</li>
+              </ul>
+            </div>
           </div>
-        </li>
-        <li>
-          <span class="f-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 0 1 0-5.7l2-2a4 4 0 0 1 5.7 5.7l-1.2 1.2"/><path d="M15 12a4 4 0 0 1 0 5.7l-2 2a4 4 0 0 1-5.7-5.7l1.2-1.2"/><path d="M4 4l2 2"/><path d="M20 20l-2-2"/></svg>
-          </span>
-          <div>
-            <h3>깨진 링크 검사</h3>
-            <p>죽은 링크를 찾아내서 정리. 링크 창고가 쓰레기장이 되지 않게.</p>
+        </div>
+      </article>
+
+      <article class="feat rev">
+        <div class="feat-copy">
+          <h3>죽은 링크는 걸러냅니다</h3>
+          <p>모아둔 링크가 쓰레기장이 되지 않도록, 접속이 안 되는 링크를 찾아서 알려줍니다. 창고가 아니라 서재로 유지하세요.</p>
+          <p class="feat-tag">Pro</p>
+        </div>
+        <div class="feat-ui">
+          <div class="check-list">
+            <div class="check-row ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Flutter 상태관리 완벽 가이드</div>
+            <div class="check-row ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>제주 3박4일 코스 총정리</div>
+            <div class="check-row bad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>2019 개발 트렌드 정리 <span>연결 안 됨</span></div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </article>
     </section>
 
     <section id="pro">
-      <div class="pro-box">
+      <div class="pro-card">
         <h2>링크풀 Pro</h2>
-        <p class="pro-price"><strong>월 1,100원</strong></p>
+        <p class="pro-price">월 2,900원</p>
         <ul class="pro-list">
           <li>AI 요약 메모</li>
-          <li>링크 무제한 저장 <span class="note">(무료는 1,000개)</span></li>
+          <li>링크 무제한 저장 <span class="note">— 무료는 1,000개</span></li>
           <li>깨진 링크 검사</li>
         </ul>
+        <p class="pro-note">구독은 App Store / Google Play에서 관리됩니다</p>
       </div>
     </section>
 
     <section id="faq">
       <h2>자주 묻는 질문</h2>
       <details><summary>무료로 어디까지 쓸 수 있나요?</summary><p>링크 1,000개까지 저장, 폴더 무제한, 기기 간 동기화 모두 무료입니다.</p></details>
-      <details><summary>Pro는 무엇이 다른가요?</summary><p>AI 요약 메모, 링크 무제한 저장, 깨진 링크 검사가 추가됩니다. 월 1,100원.</p></details>
+      <details><summary>Pro는 무엇이 다른가요?</summary><p>AI 요약 메모, 링크 무제한 저장, 깨진 링크 검사가 추가됩니다. 월 2,900원.</p></details>
       <details><summary>데이터는 어디에 저장되나요?</summary><p>기본은 내 기기에 저장됩니다. 로그인하면 클라우드에 동기화되어 기기를 바꿔도 유지됩니다.</p></details>
       <details><summary>어떤 플랫폼을 지원하나요?</summary><p>iOS, Android 앱과 크롬 브라우저 확장을 지원합니다.</p></details>
-      <details><summary>카톡에서 바로 저장할 수 있나요?</summary><p>네, 공유 버튼 → 링크풀 선택으로 바로 저장됩니다.</p></details>
+      <details><summary>카톡에서 바로 저장할 수 있나요?</summary><p>네, 공유 버튼에서 링크풀을 선택하면 바로 저장됩니다.</p></details>
+    </section>
+
+    <section id="closing">
+      <h2>오늘 저장한 링크, 오늘 정리하세요</h2>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://chromewebstore.google.com/detail/ekpnjdelmmlffckepgphccolelddblej?hl=ko">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.6"/><path d="M12 8.4h8.6"/><path d="M8.9 13.8 4.6 6.4"/><path d="M15.1 13.8l-4.3 7.4"/></svg>
+          Chrome에 링크풀 추가
+        </a>
+        <div class="qr-pair">
+          <figure>
+            <img src="assets/qr-appstore.png" alt="App Store 설치 QR 코드" width="88" height="88">
+            <figcaption>iPhone<br><a href="https://apps.apple.com/kr/app/id1644108674">App Store</a></figcaption>
+          </figure>
+          <figure>
+            <img src="assets/qr-googleplay.png" alt="Google Play 설치 QR 코드" width="88" height="88">
+            <figcaption>Android<br><a href="https://play.google.com/store/apps/details?id=com.mr.ac_project_app&amp;hl=ko">Google Play</a></figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    <nav>
+    <nav aria-label="문서와 문의">
       <a href="support.html">지원</a>
       <a href="https://abstracted-macaroon-4bf.notion.site/Privacy-Policy-LinkPool-35708b7b2b1e802b9f1de9ac64bc049b">개인정보처리방침</a>
       <a href="https://abstracted-macaroon-4bf.notion.site/Terms-Of-Service-LinkPool-3a508b7b2b1e80248f0ee94902472cea">이용약관</a>
