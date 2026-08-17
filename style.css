@@ -1,0 +1,104 @@
+:root {
+  --primary: #804DFF;
+  --primary-light: #A07EFF;
+  --bg: #FAFBFC;
+  --text: #191F28;
+  --sub: #62666C;
+  --card-bg: #FFFFFF;
+  --border: #E6EAF1;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard", "Noto Sans KR", sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+h1 { font-size: 2rem; line-height: 1.3; margin: 16px 0 12px; }
+h2 { font-size: 1.4rem; margin-bottom: 24px; }
+h3 { font-size: 1.05rem; margin-bottom: 8px; }
+
+/* hero */
+#hero { text-align: center; padding-top: 72px; }
+.hero-icon { border-radius: 16px; }
+#hero .sub { color: var(--sub); margin-bottom: 28px; }
+.store-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+.btn {
+  display: inline-block; padding: 12px 22px; border-radius: 12px;
+  text-decoration: none; font-weight: 600; font-size: 0.95rem;
+}
+.btn-store { background: var(--text); color: #fff; }
+.btn-chrome { background: var(--primary); }
+.btn:hover { opacity: 0.85; }
+.hero-shot {
+  max-width: min(300px, 80%); height: auto; border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(128, 77, 255, 0.18);
+}
+
+/* qr — 데스크톱에서만 표시 (폰에서는 버튼 탭이 빠름) */
+.qr-row { display: none; }
+@media (min-width: 720px) and (hover: hover) {
+  .qr-row { display: flex; gap: 32px; justify-content: center; margin-bottom: 40px; }
+  .qr-row figure {
+    background: var(--card-bg); border: 1px solid var(--border);
+    border-radius: 16px; padding: 14px 18px 10px;
+  }
+  .qr-row img { display: block; }
+  .qr-row figcaption { color: var(--sub); font-size: 0.82rem; margin-top: 6px; }
+}
+
+/* problem */
+.pain-list { list-style: none; }
+.pain-list li {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; color: var(--sub);
+}
+
+/* features */
+.cards { display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 560px) { .cards { grid-template-columns: 1fr 1fr; } }
+.card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 16px; padding: 20px;
+}
+.card p { color: var(--sub); font-size: 0.92rem; }
+
+/* pro */
+#pro { text-align: center; }
+.pro-price { font-size: 1.6rem; color: var(--primary); margin-bottom: 16px; }
+.pro-list { list-style: none; display: inline-block; text-align: left; }
+.pro-list li { padding: 6px 0; }
+.pro-list li::before { content: "✓ "; color: var(--primary); font-weight: 700; }
+.pro-list .note { color: var(--sub); font-size: 0.85rem; }
+
+/* faq */
+details {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;
+}
+summary { font-weight: 600; cursor: pointer; }
+details p { margin-top: 8px; color: var(--sub); }
+
+/* footer */
+footer { text-align: center; padding: 32px 20px 48px; }
+footer nav { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
+footer a { color: var(--sub); text-decoration: none; font-size: 0.9rem; }
+footer a:hover { color: var(--primary); }
+.copy { color: var(--sub); font-size: 0.8rem; }
+
+/* legal pages (support/privacy/terms) */
+.doc { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
+.doc h1 { font-size: 1.6rem; margin-bottom: 24px; }
+.doc h2 { font-size: 1.2rem; margin: 32px 0 12px; }
+.doc h3 { font-size: 1.05rem; margin: 24px 0 8px; }
+.doc p, .doc li { color: var(--sub); font-size: 0.95rem; }
+.doc ul, .doc ol { padding-left: 22px; margin: 8px 0; }
+.doc table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.9rem; }
+.doc th, .doc td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+.doc th { background: var(--card-bg); }
+.doc a { color: var(--primary); }
+.doc .back { display: inline-block; margin-bottom: 24px; color: var(--sub); text-decoration: none; }
