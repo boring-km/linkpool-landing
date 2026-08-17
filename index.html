@@ -13,6 +13,9 @@
   <meta property="og:image" content="https://linkpool.boring-km.dev/assets/og.png">
   <meta property="og:url" content="https://linkpool.boring-km.dev/">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#804DFF">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="style.css">
   <script type="application/ld+json">
   {
@@ -47,65 +50,90 @@
 <body>
   <main>
     <section id="hero">
-      <img class="hero-icon" src="assets/icon.png" alt="링크풀 아이콘" width="72" height="72">
-      <h1>쌓이기만 하는 링크,<br>링크풀에 정리하세요</h1>
-      <p class="sub">카톡 나에게 보내기, 브라우저 탭 수십 개…<br>흩어진 링크를 폴더로 정리하고 어디서든 다시 찾는 링크 관리 앱</p>
-      <div class="store-buttons">
-        <a class="btn btn-store" href="https://apps.apple.com/kr/app/id1644108674">App Store</a>
-        <a class="btn btn-store" href="https://play.google.com/store/apps/details?id=com.mr.ac_project_app&amp;hl=ko">Google Play</a>
-        <a class="btn btn-store btn-chrome" href="https://chromewebstore.google.com/detail/bdnnjanabjaahlpfpdcgfhgenhinlfbo?hl=ko">Chrome 확장</a>
-      </div>
-      <div class="qr-row" aria-label="앱 설치 QR 코드">
-        <figure>
-          <img src="assets/qr-appstore.png" alt="App Store 설치 QR 코드" width="120" height="120">
-          <figcaption>App Store</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/qr-googleplay.png" alt="Google Play 설치 QR 코드" width="120" height="120">
-          <figcaption>Google Play</figcaption>
-        </figure>
+      <div class="wrap">
+        <img class="hero-icon" src="assets/icon.png" alt="링크풀 아이콘" width="76" height="76">
+        <h1>쌓이기만 하는 링크,<br>링크풀에 정리하세요</h1>
+        <p class="sub">카톡 나에게 보내기, 브라우저 탭 수십 개…<br>흩어진 링크를 폴더로 정리하고 어디서든 다시 찾는 링크 관리 앱</p>
+        <div class="store-buttons">
+          <a class="btn" href="https://apps.apple.com/kr/app/id1644108674">App Store</a>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.mr.ac_project_app&amp;hl=ko">Google Play</a>
+          <a class="btn btn-ghost" href="https://chromewebstore.google.com/detail/bdnnjanabjaahlpfpdcgfhgenhinlfbo?hl=ko">Chrome 확장</a>
+        </div>
+        <div class="qr-row" aria-label="앱 설치 QR 코드">
+          <figure>
+            <img src="assets/qr-appstore.png" alt="App Store 설치 QR 코드" width="112" height="112">
+            <figcaption>App Store</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/qr-googleplay.png" alt="Google Play 설치 QR 코드" width="112" height="112">
+            <figcaption>Google Play</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
     <section id="problem">
       <h2>이런 적 있지 않나요?</h2>
-      <ul class="pain-list">
-        <li>"나중에 봐야지" 하고 카톡 나에게 보내기 — 다시 연 적 없음</li>
-        <li>북마크바는 몇 년째 정리 포기 상태</li>
-        <li>분명 저장했는데 어디 있는지 못 찾음</li>
+      <ul class="chat">
+        <li class="msg">"나중에 봐야지" 하고 카톡 나에게 보내기 — 다시 연 적 없음</li>
+        <li class="msg">북마크바는 몇 년째 정리 포기 상태</li>
+        <li class="msg">분명 저장했는데 어디 있는지 못 찾음</li>
+        <li class="msg reply">링크풀에 넣으면 다시 찾을 수 있어요 👇</li>
       </ul>
     </section>
 
     <section id="features">
       <h2>링크풀이 해결합니다</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>📁 폴더로 깔끔하게</h3>
-          <p>무제한 깊이 중첩 폴더. 세세하게 나누는 파워유저 방식 그대로.</p>
-        </div>
-        <div class="card">
-          <h3>🔄 PC ↔ 폰 동기화</h3>
-          <p>크롬 확장으로 PC에서 저장, 폰에서 열람. 크롬 북마크 가져오기도 지원.</p>
-        </div>
-        <div class="card">
-          <h3>🤖 AI 요약 메모</h3>
-          <p>저장한 링크를 AI가 3줄로 요약. 열어보지 않아도 내용이 기억납니다.</p>
-        </div>
-        <div class="card">
-          <h3>🔗 깨진 링크 검사</h3>
-          <p>죽은 링크를 찾아내서 정리. 링크 창고가 쓰레기장이 되지 않게.</p>
-        </div>
-      </div>
+      <ul class="feature-list">
+        <li>
+          <span class="f-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M8 13h4"/><path d="M8 16h7"/></svg>
+          </span>
+          <div>
+            <h3>폴더로 깔끔하게</h3>
+            <p>무제한 깊이 중첩 폴더. 세세하게 나누는 파워유저 방식 그대로.</p>
+          </div>
+        </li>
+        <li>
+          <span class="f-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14.9-3"/><path d="M5 4v4h4"/><path d="M4 13a8 8 0 0 0 14.9 3"/><path d="M19 20v-4h-4"/></svg>
+          </span>
+          <div>
+            <h3>PC와 폰이 하나로</h3>
+            <p>크롬 확장으로 PC에서 저장, 폰에서 열람. 크롬 북마크 가져오기도 지원.</p>
+          </div>
+        </li>
+        <li>
+          <span class="f-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18 15l.9 2.1L21 18l-2.1.9L18 21l-.9-2.1L15 18l2.1-.9z"/></svg>
+          </span>
+          <div>
+            <h3>AI 요약 메모</h3>
+            <p>저장한 링크를 AI가 3줄로 요약. 열어보지 않아도 내용이 기억납니다.</p>
+          </div>
+        </li>
+        <li>
+          <span class="f-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 0 1 0-5.7l2-2a4 4 0 0 1 5.7 5.7l-1.2 1.2"/><path d="M15 12a4 4 0 0 1 0 5.7l-2 2a4 4 0 0 1-5.7-5.7l1.2-1.2"/><path d="M4 4l2 2"/><path d="M20 20l-2-2"/></svg>
+          </span>
+          <div>
+            <h3>깨진 링크 검사</h3>
+            <p>죽은 링크를 찾아내서 정리. 링크 창고가 쓰레기장이 되지 않게.</p>
+          </div>
+        </li>
+      </ul>
     </section>
 
     <section id="pro">
-      <h2>링크풀 Pro</h2>
-      <p class="pro-price"><strong>월 1,100원</strong></p>
-      <ul class="pro-list">
-        <li>AI 요약 메모</li>
-        <li>링크 무제한 저장 <span class="note">(무료는 1,000개)</span></li>
-        <li>깨진 링크 검사</li>
-      </ul>
+      <div class="pro-box">
+        <h2>링크풀 Pro</h2>
+        <p class="pro-price"><strong>월 1,100원</strong></p>
+        <ul class="pro-list">
+          <li>AI 요약 메모</li>
+          <li>링크 무제한 저장 <span class="note">(무료는 1,000개)</span></li>
+          <li>깨진 링크 검사</li>
+        </ul>
+      </div>
     </section>
 
     <section id="faq">
@@ -121,9 +149,9 @@
   <footer>
     <nav>
       <a href="support.html">지원</a>
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="terms.html">이용약관</a>
-      <a href="mailto:linkpooltest2@gmail.com">문의</a>
+      <a href="https://abstracted-macaroon-4bf.notion.site/Privacy-Policy-LinkPool-35708b7b2b1e802b9f1de9ac64bc049b">개인정보처리방침</a>
+      <a href="https://abstracted-macaroon-4bf.notion.site/Terms-Of-Service-LinkPool-3a508b7b2b1e80248f0ee94902472cea">이용약관</a>
+      <a href="mailto:ts4840644804@gmail.com">문의</a>
     </nav>
     <p class="copy">© 2026 LinkPool</p>
   </footer>

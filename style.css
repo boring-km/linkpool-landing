@@ -1,104 +1,166 @@
 :root {
   --primary: #804DFF;
-  --primary-light: #A07EFF;
+  --primary-deep: #5F2EE0;
+  --primary-tint: #F3EFFF;
+  --on-primary: #FFFFFF;
+  --on-primary-sub: #E2D8FF;
   --bg: #FAFBFC;
   --text: #191F28;
-  --sub: #62666C;
+  --sub: #4E545C;
   --card-bg: #FFFFFF;
   --border: #E6EAF1;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Pretendard", "Noto Sans KR", sans-serif;
-  background: var(--bg); color: var(--text); line-height: 1.6;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.65;
   -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
 }
-main { max-width: 720px; margin: 0 auto; padding: 0 20px; }
-section { padding: 56px 0; border-bottom: 1px solid var(--border); }
-section:last-of-type { border-bottom: none; }
-h1 { font-size: 2rem; line-height: 1.3; margin: 16px 0 12px; }
-h2 { font-size: 1.4rem; margin-bottom: 24px; }
-h3 { font-size: 1.05rem; margin-bottom: 8px; }
+::selection { background: var(--primary); color: var(--on-primary); }
+:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; border-radius: 4px; }
 
-/* hero */
-#hero { text-align: center; padding-top: 72px; }
-.hero-icon { border-radius: 16px; }
-#hero .sub { color: var(--sub); margin-bottom: 28px; }
-.store-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+main > section { padding: 64px 20px; }
+main > section > h2, .wrap, .chat, .feature-list, .pro-box, #faq details {
+  max-width: 640px; margin-left: auto; margin-right: auto;
+}
+h1 { font-size: clamp(1.9rem, 6vw, 2.6rem); line-height: 1.28; font-weight: 800; text-wrap: balance; }
+h2 { font-size: 1.45rem; font-weight: 700; margin-bottom: 28px; text-wrap: balance; }
+h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
+
+/* hero — 브랜드 퍼플 드렌치 */
+#hero {
+  background: var(--primary);
+  color: var(--on-primary);
+  text-align: center;
+  padding: 84px 20px 72px;
+}
+.wrap > * { animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards; }
+.wrap > *:nth-child(2) { animation-delay: 0.07s; }
+.wrap > *:nth-child(3) { animation-delay: 0.14s; }
+.wrap > *:nth-child(4) { animation-delay: 0.21s; }
+.wrap > *:nth-child(5) { animation-delay: 0.28s; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wrap > * { animation: none; }
+  html { scroll-behavior: auto; }
+}
+.hero-icon {
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(25, 31, 40, 0.25);
+  margin-bottom: 20px;
+}
+#hero .sub { color: var(--on-primary); margin: 14px 0 32px; font-size: 1.02rem; text-wrap: pretty; }
+.store-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 .btn {
-  display: inline-block; padding: 12px 22px; border-radius: 12px;
-  text-decoration: none; font-weight: 600; font-size: 0.95rem;
+  display: inline-block; padding: 13px 24px; border-radius: 14px;
+  text-decoration: none; font-weight: 700; font-size: 0.95rem;
+  background: var(--on-primary); color: var(--primary-deep);
+  box-shadow: 0 4px 14px rgba(25, 31, 40, 0.18);
+  transition: transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.18s;
 }
-.btn-store { background: var(--text); color: #fff; }
-.btn-chrome { background: var(--primary); }
-.btn:hover { opacity: 0.85; }
-.hero-shot {
-  max-width: min(300px, 80%); height: auto; border-radius: 24px;
-  box-shadow: 0 12px 40px rgba(128, 77, 255, 0.18);
+.btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(25, 31, 40, 0.24); }
+.btn:active { transform: none; }
+.btn-ghost {
+  background: transparent; color: var(--on-primary);
+  border: 1.5px solid rgba(255, 255, 255, 0.55); box-shadow: none;
 }
+.btn-ghost:hover { border-color: var(--on-primary); box-shadow: none; }
 
-/* qr — 데스크톱에서만 표시 (폰에서는 버튼 탭이 빠름) */
+/* qr — 포인터가 있는 넓은 화면에서만 (폰에서는 버튼 탭이 빠름) */
 .qr-row { display: none; }
 @media (min-width: 720px) and (hover: hover) {
-  .qr-row { display: flex; gap: 32px; justify-content: center; margin-bottom: 40px; }
+  .qr-row { display: flex; gap: 24px; justify-content: center; margin-top: 40px; }
   .qr-row figure {
-    background: var(--card-bg); border: 1px solid var(--border);
-    border-radius: 16px; padding: 14px 18px 10px;
+    background: var(--on-primary); border-radius: 16px;
+    padding: 14px 18px 10px;
+    box-shadow: 0 6px 18px rgba(25, 31, 40, 0.18);
   }
   .qr-row img { display: block; }
-  .qr-row figcaption { color: var(--sub); font-size: 0.82rem; margin-top: 6px; }
+  .qr-row figcaption { color: var(--sub); font-size: 0.82rem; margin-top: 6px; font-weight: 600; }
 }
 
-/* problem */
-.pain-list { list-style: none; }
-.pain-list li {
+/* problem — 카톡 채팅 버블 메타포 */
+#problem { padding-top: 72px; }
+.chat { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.msg {
+  align-self: flex-start;
   background: var(--card-bg); border: 1px solid var(--border);
-  border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; color: var(--sub);
+  border-radius: 4px 18px 18px 18px;
+  padding: 12px 16px; max-width: 85%;
+  color: var(--sub); font-size: 0.95rem;
+}
+.msg.reply {
+  align-self: flex-end;
+  background: var(--primary-tint); border-color: transparent;
+  border-radius: 18px 4px 18px 18px;
+  color: var(--primary-deep); font-weight: 600;
 }
 
-/* features */
-.cards { display: grid; grid-template-columns: 1fr; gap: 14px; }
-@media (min-width: 560px) { .cards { grid-template-columns: 1fr 1fr; } }
-.card {
-  background: var(--card-bg); border: 1px solid var(--border);
-  border-radius: 16px; padding: 20px;
+/* features — 아이콘 행 리스트 */
+.feature-list { list-style: none; display: flex; flex-direction: column; gap: 28px; }
+.feature-list li { display: flex; gap: 16px; align-items: flex-start; }
+.f-icon {
+  flex: none; width: 44px; height: 44px; border-radius: 12px;
+  display: grid; place-items: center;
+  background: var(--primary-tint); color: var(--primary-deep);
 }
-.card p { color: var(--sub); font-size: 0.92rem; }
+.f-icon svg { width: 24px; height: 24px; }
+.feature-list p { color: var(--sub); font-size: 0.95rem; }
+@media (min-width: 600px) {
+  .feature-list { display: grid; grid-template-columns: 1fr 1fr; gap: 32px 40px; }
+}
 
-/* pro */
-#pro { text-align: center; }
-.pro-price { font-size: 1.6rem; color: var(--primary); margin-bottom: 16px; }
+/* pro — 퍼플 틴트 서피스 */
+.pro-box {
+  background: var(--primary-tint);
+  border-radius: 24px;
+  padding: 40px 28px;
+  text-align: center;
+}
+.pro-box h2 { margin-bottom: 4px; color: var(--primary-deep); }
+.pro-price { font-size: 1.7rem; font-weight: 800; color: var(--primary-deep); margin-bottom: 18px; }
 .pro-list { list-style: none; display: inline-block; text-align: left; }
-.pro-list li { padding: 6px 0; }
-.pro-list li::before { content: "✓ "; color: var(--primary); font-weight: 700; }
-.pro-list .note { color: var(--sub); font-size: 0.85rem; }
+.pro-list li { padding: 5px 0; font-weight: 500; }
+.pro-list li::before { content: "✓ "; color: var(--primary); font-weight: 800; }
+.pro-list .note { color: var(--sub); font-size: 0.85rem; font-weight: 400; }
 
 /* faq */
-details {
+#faq details {
   background: var(--card-bg); border: 1px solid var(--border);
-  border-radius: 12px; padding: 14px 16px; margin-bottom: 10px;
+  border-radius: 14px; padding: 15px 18px; margin-bottom: 10px;
 }
-summary { font-weight: 600; cursor: pointer; }
-details p { margin-top: 8px; color: var(--sub); }
+#faq summary { font-weight: 700; cursor: pointer; list-style: none; position: relative; padding-right: 28px; }
+#faq summary::-webkit-details-marker { display: none; }
+#faq summary::after {
+  content: ""; position: absolute; right: 4px; top: 50%;
+  width: 9px; height: 9px;
+  border-right: 2px solid var(--primary); border-bottom: 2px solid var(--primary);
+  transform: translateY(-70%) rotate(45deg);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#faq details[open] summary::after { transform: translateY(-30%) rotate(225deg); }
+#faq details p { margin-top: 10px; color: var(--sub); font-size: 0.95rem; }
 
 /* footer */
-footer { text-align: center; padding: 32px 20px 48px; }
-footer nav { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
+footer { text-align: center; padding: 40px 20px 56px; border-top: 1px solid var(--border); }
+footer nav { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 12px; }
 footer a { color: var(--sub); text-decoration: none; font-size: 0.9rem; }
-footer a:hover { color: var(--primary); }
+footer a:hover { color: var(--primary-deep); text-decoration: underline; text-underline-offset: 4px; }
 .copy { color: var(--sub); font-size: 0.8rem; }
 
-/* legal pages (support/privacy/terms) */
-.doc { max-width: 720px; margin: 0 auto; padding: 48px 20px; }
+/* 문서 페이지 (support 등) */
+.doc { max-width: 640px; margin: 0 auto; padding: 56px 20px; }
 .doc h1 { font-size: 1.6rem; margin-bottom: 24px; }
-.doc h2 { font-size: 1.2rem; margin: 32px 0 12px; }
-.doc h3 { font-size: 1.05rem; margin: 24px 0 8px; }
+.doc h2 { font-size: 1.2rem; margin: 36px 0 12px; }
 .doc p, .doc li { color: var(--sub); font-size: 0.95rem; }
-.doc ul, .doc ol { padding-left: 22px; margin: 8px 0; }
-.doc table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 0.9rem; }
-.doc th, .doc td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
-.doc th { background: var(--card-bg); }
-.doc a { color: var(--primary); }
-.doc .back { display: inline-block; margin-bottom: 24px; color: var(--sub); text-decoration: none; }
+.doc ul { padding-left: 22px; margin: 8px 0; }
+.doc strong { color: var(--text); }
+.doc a { color: var(--primary-deep); }
+.doc .back { display: inline-block; margin-bottom: 28px; color: var(--sub); text-decoration: none; }
+.doc .back:hover { color: var(--primary-deep); }
