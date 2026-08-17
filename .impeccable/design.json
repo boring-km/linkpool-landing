@@ -1,0 +1,191 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-17T22:30:00+09:00",
+  "title": "Design System: 링크풀 랜딩",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "브랜드 보라",
+        "canonical": "#804DFF",
+        "tonalRamp": ["oklch(15% 0.09 296)", "oklch(26% 0.14 296)", "oklch(37% 0.19 296)", "oklch(48% 0.23 296)", "oklch(58% 0.24 296)", "oklch(70% 0.17 296)", "oklch(82% 0.10 296)", "oklch(95% 0.03 296)"]
+      },
+      "primary-deep": {
+        "role": "primary",
+        "displayName": "딥 보라",
+        "canonical": "#5F2EE0",
+        "tonalRamp": ["oklch(15% 0.10 290)", "oklch(25% 0.15 290)", "oklch(35% 0.20 290)", "oklch(47% 0.25 290)", "oklch(58% 0.22 290)", "oklch(70% 0.16 290)", "oklch(82% 0.09 290)", "oklch(95% 0.03 290)"]
+      },
+      "primary-tint": {
+        "role": "primary",
+        "displayName": "보라 틴트",
+        "canonical": "#F3EFFF",
+        "tonalRamp": ["oklch(15% 0.05 295)", "oklch(28% 0.05 295)", "oklch(41% 0.05 295)", "oklch(54% 0.05 295)", "oklch(67% 0.05 295)", "oklch(80% 0.04 295)", "oklch(90% 0.03 295)", "oklch(96% 0.02 295)"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "잉크",
+        "canonical": "#191F28",
+        "tonalRamp": ["oklch(15% 0.012 255)", "oklch(24% 0.015 255)", "oklch(36% 0.014 255)", "oklch(48% 0.013 255)", "oklch(60% 0.012 255)", "oklch(72% 0.010 255)", "oklch(84% 0.007 255)", "oklch(95% 0.003 255)"]
+      },
+      "sub": {
+        "role": "neutral",
+        "displayName": "서브",
+        "canonical": "#4E545C",
+        "tonalRamp": ["oklch(15% 0.010 250)", "oklch(26% 0.011 250)", "oklch(43% 0.012 250)", "oklch(55% 0.011 250)", "oklch(66% 0.010 250)", "oklch(76% 0.008 250)", "oklch(86% 0.006 250)", "oklch(95% 0.003 250)"]
+      },
+      "bg": {
+        "role": "neutral",
+        "displayName": "바탕",
+        "canonical": "#FFFFFF",
+        "tonalRamp": ["oklch(15% 0 0)", "oklch(28% 0 0)", "oklch(41% 0 0)", "oklch(54% 0 0)", "oklch(67% 0 0)", "oklch(80% 0 0)", "oklch(92% 0 0)", "oklch(100% 0 0)"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "면",
+        "canonical": "#F7F8FA",
+        "tonalRamp": ["oklch(15% 0.004 240)", "oklch(28% 0.004 240)", "oklch(41% 0.004 240)", "oklch(54% 0.004 240)", "oklch(67% 0.004 240)", "oklch(80% 0.004 240)", "oklch(90% 0.003 240)", "oklch(97.5% 0.003 240)"]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "경계",
+        "canonical": "#E6EAF1",
+        "tonalRamp": ["oklch(15% 0.008 255)", "oklch(28% 0.008 255)", "oklch(41% 0.008 255)", "oklch(54% 0.008 255)", "oklch(67% 0.008 255)", "oklch(80% 0.008 255)", "oklch(88% 0.008 255)", "oklch(94% 0.007 255)"]
+      },
+      "ok": {
+        "role": "semantic",
+        "displayName": "정상 그린",
+        "canonical": "#14804A",
+        "tonalRamp": ["oklch(15% 0.05 155)", "oklch(26% 0.08 155)", "oklch(37% 0.11 155)", "oklch(52% 0.13 155)", "oklch(63% 0.13 155)", "oklch(74% 0.11 155)", "oklch(85% 0.08 155)", "oklch(95% 0.03 155)"]
+      },
+      "bad": {
+        "role": "semantic",
+        "displayName": "경고 레드",
+        "canonical": "#C7362B",
+        "tonalRamp": ["oklch(15% 0.06 30)", "oklch(26% 0.10 30)", "oklch(38% 0.14 30)", "oklch(52% 0.17 30)", "oklch(63% 0.16 30)", "oklch(74% 0.12 30)", "oklch(85% 0.08 30)", "oklch(95% 0.03 30)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "히어로 h1 전용 — 5rem/800, -0.02em, 두 줄 대형 선언." },
+      "headline": { "displayName": "Headline", "purpose": "섹션 h2 (features/faq/closing), 중앙 정렬." },
+      "title": { "displayName": "Title", "purpose": "feat 항목 h3." },
+      "body": { "displayName": "Body", "purpose": "본문. feat 문단 1.03rem/sub색/max 26rem, 히어로 서브 1.2rem/max 40rem. word-break: keep-all 전역." },
+      "label": { "displayName": "Label", "purpose": "재구성 UI 내부 텍스트·캡션·칩. 칩/배지는 800 + 양수 자간." }
+    },
+    "shadows": [
+      { "name": "window-float", "value": "0 24px 80px rgba(25, 31, 40, 0.14)", "purpose": "히어로 재구성 데모 창. 페이지 최고도 잉크 그림자." },
+      { "name": "panel-float", "value": "0 12px 40px rgba(25, 31, 40, 0.08)", "purpose": "feat UI 재구성 패널 공통 (tree/ext-pop/ai-card/check-list)." },
+      { "name": "toast", "value": "0 10px 30px rgba(25, 31, 40, 0.3)", "purpose": "다크 토스트." },
+      { "name": "purple-glow", "value": "0 8px 24px rgba(128, 77, 255, 0.32)", "purpose": "Primary CTA 기본. 동색 그림자 규칙." },
+      { "name": "purple-glow-hover", "value": "0 12px 32px rgba(128, 77, 255, 0.4)", "purpose": "Primary CTA hover 상승." },
+      { "name": "purple-drench-glow", "value": "0 24px 64px rgba(128, 77, 255, 0.35)", "purpose": "Pro 드렌치 카드." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "전 구간 유일 이징 (--ease). 진입·hover·셰브론 회전 공통." },
+      { "name": "duration-micro", "value": "0.18s", "purpose": "hover 색·transform 전환." },
+      { "name": "duration-reveal", "value": "0.25s", "purpose": "FAQ 셰브론 회전." },
+      { "name": "duration-entrance", "value": "0.6s–0.9s", "purpose": "로드 오케스트레이션 (창 상승 0.9s, 카드 0.7s 스태거, 토스트 0.6s). 1회만, backwards fill, reduced-motion 분기 필수." }
+    ],
+    "breakpoints": [
+      { "name": "desktop-only", "value": "min-width 1080px (body min-width; 반응형 브레이크포인트 없음 — 확정 결정)" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "보라 글로우를 두른 메인 설치 CTA. hover 시 딥 보라 + 2px 상승.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"22\" height=\"22\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><circle cx=\"12\" cy=\"12\" r=\"3.6\"/><path d=\"M12 8.4h8.6\"/><path d=\"M8.9 13.8 4.6 6.4\"/><path d=\"M15.1 13.8l-4.3 7.4\"/></svg>Chrome에 링크풀 추가</a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; padding: 17px 30px; border-radius: 14px; background: var(--primary, #804DFF); color: #fff; font-size: 1.08rem; font-weight: 700; text-decoration: none; box-shadow: 0 8px 24px rgba(128, 77, 255, 0.32); transition: transform 0.18s cubic-bezier(0.16,1,0.3,1), box-shadow 0.18s cubic-bezier(0.16,1,0.3,1), background 0.18s; } .ds-btn-primary:hover { background: var(--primary-deep, #5F2EE0); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(128, 77, 255, 0.4); } .ds-btn-primary:active { transform: none; } .ds-btn-primary:focus-visible { outline: 3px solid var(--primary, #804DFF); outline-offset: 3px; }"
+    },
+    {
+      "name": "Nav CTA Button",
+      "kind": "button",
+      "refersTo": "button-nav",
+      "description": "잉크 배경의 내비 우측 CTA. hover 순간 딥 보라로.",
+      "html": "<a class=\"ds-btn-nav\" href=\"#\">Chrome에 추가</a>",
+      "css": ".ds-btn-nav { display: inline-block; padding: 9px 18px; border-radius: 10px; background: var(--ink, #191F28); color: #fff; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: background 0.18s cubic-bezier(0.16,1,0.3,1); } .ds-btn-nav:hover { background: var(--primary-deep, #5F2EE0); } .ds-btn-nav:focus-visible { outline: 3px solid var(--primary, #804DFF); outline-offset: 3px; }"
+    },
+    {
+      "name": "Pro Tag Chip",
+      "kind": "chip",
+      "refersTo": "chip-pro",
+      "description": "틴트 배경 + 딥 보라 텍스트의 pill 태그. Pro 기능 표시.",
+      "html": "<span class=\"ds-chip-pro\">Pro</span>",
+      "css": ".ds-chip-pro { display: inline-block; background: var(--primary-tint, #F3EFFF); color: var(--primary-deep, #5F2EE0); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.02em; padding: 4px 12px; border-radius: 999px; }"
+    },
+    {
+      "name": "Link Card",
+      "kind": "card",
+      "refersTo": "card-link",
+      "description": "재구성 데모 창 속 저장된 링크 카드: 파비콘 칩 + 제목 + 메모 + URL.",
+      "html": "<div class=\"ds-card-link\"><p class=\"ds-cl-title\"><span class=\"ds-cl-fav\">B</span>Flutter 상태관리 완벽 가이드</p><p class=\"ds-cl-memo\">Cubit과 Bloc의 차이를 실전 예제로 정리. 중형 앱은 Cubit으로 충분하다는 결론.</p><p class=\"ds-cl-url\">blog.example.com</p></div>",
+      "css": ".ds-card-link { background: var(--bg, #FFFFFF); border: 1px solid var(--border, #E6EAF1); border-radius: 12px; padding: 15px 16px; max-width: 320px; font-family: inherit; } .ds-cl-title { margin: 0; font-weight: 700; font-size: 0.95rem; color: var(--ink, #191F28); display: flex; align-items: center; gap: 8px; } .ds-cl-fav { flex: none; width: 20px; height: 20px; border-radius: 6px; display: grid; place-items: center; font-size: 0.68rem; font-weight: 800; color: #fff; background: #3D7DF5; } .ds-cl-memo { font-size: 0.84rem; color: var(--sub, #4E545C); margin: 6px 0 8px; } .ds-cl-url { margin: 0; font-size: 0.78rem; color: var(--primary-deep, #5F2EE0); font-weight: 600; }"
+    },
+    {
+      "name": "Save Toast",
+      "kind": "custom",
+      "refersTo": "toast",
+      "description": "잉크 바탕 저장 확인 토스트. 다크 전용 밝은 액센트(민트 체크, 라벤더 강조).",
+      "html": "<div class=\"ds-toast\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"17\" height=\"17\"><path d=\"M20 6 9 17l-5-5\"/></svg>카카오톡에서 온 링크가 <strong>여행 준비</strong> 폴더로 정리됐어요</div>",
+      "css": ".ds-toast { display: inline-flex; align-items: center; gap: 9px; background: var(--ink, #191F28); color: #fff; font-size: 0.88rem; padding: 12px 18px; border-radius: 12px; box-shadow: 0 10px 30px rgba(25, 31, 40, 0.3); } .ds-toast svg { color: #7CE3A8; flex: none; } .ds-toast strong { color: #CDB9FF; font-weight: 700; }"
+    },
+    {
+      "name": "FAQ Item",
+      "kind": "custom",
+      "refersTo": "faq-item",
+      "description": "details/summary 카드. 마커 대신 보라 셰브론이 0.25s 회전.",
+      "html": "<details class=\"ds-faq\"><summary>무료로 어디까지 쓸 수 있나요?</summary><p>링크 1,000개까지 저장, 폴더 무제한, 기기 간 동기화 모두 무료입니다.</p></details>",
+      "css": ".ds-faq { background: var(--bg, #FFFFFF); border: 1px solid var(--border, #E6EAF1); border-radius: 14px; padding: 17px 20px; max-width: 420px; color: var(--ink, #191F28); } .ds-faq summary { font-weight: 700; cursor: pointer; list-style: none; position: relative; padding-right: 30px; font-size: 1rem; } .ds-faq summary::-webkit-details-marker { display: none; } .ds-faq summary::after { content: \"\"; position: absolute; right: 4px; top: 50%; width: 9px; height: 9px; border-right: 2px solid var(--primary, #804DFF); border-bottom: 2px solid var(--primary, #804DFF); transform: translateY(-70%) rotate(45deg); transition: transform 0.25s cubic-bezier(0.16,1,0.3,1); } .ds-faq[open] summary::after { transform: translateY(-30%) rotate(225deg); } .ds-faq p { margin: 10px 0 0; color: var(--sub, #4E545C); font-size: 0.97rem; }"
+    },
+    {
+      "name": "Folder Row",
+      "kind": "nav",
+      "refersTo": "card-link",
+      "description": "사이드바 폴더 행: 보라 stroke 폴더 아이콘 + 이름 + 카운트. 선택 시 틴트 배경 + 딥 보라.",
+      "html": "<ul class=\"ds-folders\"><li><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"17\" height=\"17\"><path d=\"M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg>개발 아티클 <span class=\"ds-cnt\">24</span></li><li class=\"ds-on\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\" width=\"17\" height=\"17\"><path d=\"M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\"/></svg>여행 준비 <span class=\"ds-cnt\">11</span></li></ul>",
+      "css": ".ds-folders { list-style: none; margin: 0; padding: 0; width: 220px; } .ds-folders li { display: flex; align-items: center; gap: 9px; padding: 9px 10px; border-radius: 9px; font-size: 0.92rem; font-weight: 600; color: var(--ink, #191F28); } .ds-folders svg { color: var(--primary, #804DFF); flex: none; } .ds-folders .ds-cnt { margin-left: auto; font-size: 0.78rem; font-weight: 600; color: var(--sub, #4E545C); } .ds-folders li.ds-on { background: var(--primary-tint, #F3EFFF); color: var(--primary-deep, #5F2EE0); }"
+    },
+    {
+      "name": "AI Memo Block",
+      "kind": "custom",
+      "refersTo": "chip-pro",
+      "description": "틴트 면 위 AI 배지 + 딥 보라 불릿 리스트. Pro 기능의 시그니처 연출.",
+      "html": "<div class=\"ds-ai-memo\"><span class=\"ds-ai-badge\">AI 요약</span><ul><li>로컬 DB를 진실의 원천으로 두고 서버는 백업 역할</li><li>충돌은 마지막 수정 시각 기준으로 해소</li></ul></div>",
+      "css": ".ds-ai-memo { background: var(--primary-tint, #F3EFFF); border-radius: 12px; padding: 14px 16px; max-width: 360px; } .ds-ai-badge { display: inline-block; background: var(--primary, #804DFF); color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.03em; padding: 3px 10px; border-radius: 999px; margin-bottom: 9px; } .ds-ai-memo ul { list-style: none; margin: 0; padding: 0; } .ds-ai-memo li { font-size: 0.87rem; color: var(--primary-deep, #5F2EE0); padding: 3px 0 3px 14px; position: relative; } .ds-ai-memo li::before { content: \"\"; position: absolute; left: 0; top: 0.85em; width: 5px; height: 5px; border-radius: 50%; background: var(--primary, #804DFF); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "카테고리의 정석 (The Canon)",
+    "overview": "링크 관리 카테고리의 관습을 아이러니 없이 정면으로, 최고 완성도로 실행하는 세계다. 품질 기준선은 토스(toss.im)·Raindrop.io·mymind.com. 흰 바탕 위에 잉크(#191F28)의 대형 타이포가 말하고, 브랜드 보라(#804DFF)는 데모 UI의 액센트·CTA·포커스·Pro 카드에만 집중 투입된다. 앱 화면은 실물 스크린샷 대신 전부 HTML/CSS로 재구성한 테마드 브라우저 창으로 연출한다 — 이 재구성 UI가 제품의 증명이다. 밀도는 낮고 호흡은 길다. 이 랜딩은 데스크톱 전용(min-width 1080px)이며, 유일한 미디어 쿼리는 prefers-reduced-motion 분기다.",
+    "keyCharacteristics": [
+      "잉크 온 화이트 대형 타이포 + 집중 투입되는 보라 액센트",
+      "앱 화면은 100% HTML/CSS 재구성 (래스터 스크린샷 금지)",
+      "로드 시 1회만 재생되는 단일 오케스트레이션 모션",
+      "데스크톱 전용, 미디어 쿼리는 reduced-motion 하나뿐",
+      "사실 카피만 — 발명된 지표·추천사 없음"
+    ],
+    "rules": [
+      { "name": "보라 집중 투입 규칙 (The Concentrated Purple Rule)", "body": "보라는 넓게 바르지 않고 좁게 꽂는다: CTA, 포커스, 데모 UI 액센트, 그리고 단 하나의 풀-드렌치 서피스(Pro 카드). 본문 텍스트나 섹션 배경을 보라로 칠하지 않는다.", "section": "colors" },
+      { "name": "딥 포 텍스트 규칙 (The Deep-for-Text Rule)", "body": "흰·틴트 바탕 위 보라 텍스트는 #804DFF가 아니라 항상 #5F2EE0(primary-deep)이다. #804DFF는 흰 글자를 얹는 배경과 아이콘에만 쓴다.", "section": "colors" },
+      { "name": "웨이트로 말하기 규칙 (The Weight-Does-The-Work Rule)", "body": "위계는 폰트 교체가 아니라 800↔600↔400 웨이트 대비와 잉크↔서브 색 대비로만 만든다. 이탤릭·세리프·모노 서체는 이 세계에 없다.", "section": "typography" },
+      { "name": "동색 그림자 규칙 (The Same-Hue Shadow Rule)", "body": "그림자 색은 요소의 색에서 온다. 보라 요소는 rgba(128,77,255,…), 그 외 서피스는 잉크 rgba(25,31,40,…). 중립 검정 rgba(0,0,0,…) 그림자는 쓰지 않는다.", "section": "elevation" },
+      { "name": "보더가 경계, 그림자가 높이 규칙 (The Border-Edges Rule)", "body": "흰 바탕 위 흰 카드는 그림자만으로 구분하지 않는다 — 1px --border가 항상 먼저 경계를 긋고, 그림자는 높이감만 더한다.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do 앱 화면이 필요하면 HTML/CSS로 재구성한다 — 테마드 브라우저 창, 재구성 패널, 오프셋 틴트 슬랩 문법으로.",
+      "Do 아이콘은 인라인 stroke SVG(currentColor, stroke-width 1.6–2, round cap)로 그린다.",
+      "Do 새 애니메이션엔 --ease(cubic-bezier(0.16,1,0.3,1))와 reduced-motion 분기를 함께 붙이고, 정착 상태가 정보상 완결이 되게 한다.",
+      "Do 한국어 텍스트 블록엔 word-break: keep-all을, 헤딩엔 text-wrap: balance를 유지한다.",
+      "Do 설치 CTA는 Chrome 확장 primary + QR 페어 구성을 그대로 복제한다."
+    ],
+    "donts": [
+      "Don't 폰 목업·실물 스크린샷을 나열하지 않는다 (THESIS의 명시적 거부).",
+      "Don't 보라를 본문 텍스트(#804DFF 그대로)나 넓은 섹션 배경에 쓰지 않는다 — 풀-드렌치는 Pro 카드 하나뿐.",
+      "Don't 반응형 브레이크포인트·모바일 레이아웃을 추가하지 않는다 — 데스크톱 전용은 확정 결정이다.",
+      "Don't 루프·스크롤 트리거 애니메이션을 넣지 않는다 — 모션은 로드 시 1회 오케스트레이션과 hover 마이크로뿐.",
+      "Don't 중립 검정 그림자, 아이콘 폰트, 제2의 폰트 패밀리를 들이지 않는다."
+    ]
+  }
+}
