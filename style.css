@@ -42,6 +42,7 @@ h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
 .wrap > *:nth-child(3) { animation-delay: 0.14s; }
 .wrap > *:nth-child(4) { animation-delay: 0.21s; }
 .wrap > *:nth-child(5) { animation-delay: 0.28s; }
+.wrap > *:nth-child(6) { animation-delay: 0.35s; }
 @keyframes rise {
   from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: none; }
